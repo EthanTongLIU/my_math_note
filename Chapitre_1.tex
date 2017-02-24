@@ -1,0 +1,214 @@
+\documentclass[math_note.tex]{subfiles}
+
+\begin{document}
+\chapter{Série Entière 幂级数}
+\begin{note}
+	Pour $n \in \mathbb{N}$, on pose $X^{n}:z \in \mathbb{C} \mapsto z^{n}$ .
+\end{note}
+\begin{newdef}
+	Pour $(a_{n})_{n\in \mathbb{N}} \in \mathbb{C}^{\mathbb{N}}$, on 
+	appelle série entière $((a_{n}X^{n}))$. On s'intéresse à la fonction 
+	$$f : z \mapsto \sum_{n=0}^{+\infty} a_{n} z^{n}$$
+\end{newdef}
+
+\section{Rayon de convergence 收敛半径}
+\begin{newdef}
+	设$((a_{n}X^{n}))$是一个幂级数，$((a_{n}X^{n}))$的收敛半径(RCV)记为$R_{c}$，定义为：
+	$$R_{c} = sup(\{|z|,z \in \mathbb{C} ~ et ~ ((a_{n}X^{n})) ~ converge\}) \in 
+	\mathbb{R}_{+} \cup \{ + \infty\}$$ (bien défini car $((a_{n}0^{n}))$ converge).
+\end{newdef}
+
+\begin{note}
+		定义$\forall r \in \mathbb{R}_{+}$
+		$$D(0,r)=\{ z \in \mathbb{C} : |z| < r \}$$
+		$$\bar{D}(0,r)=\{ z \in \mathbb{C} : |z| \leq r \}$$
+		$$C(0,r)=\{ z \in \mathbb{C} : |z| = r \}$$
+\end{note}
+
+\begin{newlemma}[d'Abel]
+设$((a_{n}X^{n}))$是一个幂级数，假设存在$R > 0$ 满足数列$(a_{n}R^{n})$是有界的，则$\forall 
+r \in ]0,R[$, $((a_{n}X^{n}))$在$\bar{D}(0,r)$上CVN。
+\end{newlemma}
+
+\begin{newproof}
+	
+\end{newproof}
+
+\begin{conclusion}
+	设$z\in \mathbb{C}^{*}$满足$f(z)$有定义并且$((a_{n}z^{n}))$收敛，则$\forall z^{'} \in 
+	\mathbb{C}$ 满足 $|z^{'}| < |z|$， $((a_{n}{z^{'}}^{n}))$ 绝对收敛(Converge absolument)。
+\end{conclusion}
+
+\begin{example}
+	\begin{enumerate}
+		\item 求$((X^{n}))$ 的收敛半径。$R_{c}=1$ 
+		\item 求$((\dfrac{X^{n}}{n!}))$的收敛半径。$R_{c}=+\infty$ 因为 $\forall z \in 
+		\mathbb{C}$， $((\dfrac{X^{n}}{n!}))$收敛于$e^{z}$。
+	\end{enumerate}
+\end{example}
+
+\begin{newthem}
+	设$((a_{n}X^{n}))$是一个幂级数，收敛半径为$R_{c}$，对于$z \in \mathbb{C}$,
+	\begin{itemize}
+		\item 若$|z|<R_{c}$，则$((a_{n}z^{n}))$绝对收敛。
+		\item 若$|z|>R_{c}$，则$((a_{n}z^{n}))$无界。
+	\end{itemize}
+\end{newthem}
+
+\begin{newproof}
+	
+\end{newproof}
+
+\begin{newdef}
+	我们称收敛圆的集合为$C(0,R_{c})$。
+\end{newdef}
+
+\begin{example}
+	\begin{enumerate}
+		\item $((X^{n}))$：对于$z \in \mathbb{U}(|z|=1)$，$((z^{n}))$发散。
+		实际上，
+		\begin{itemize}
+			\item 若$z=1$，$((1^{n}))$发散。
+			\item 若$z\neq1$，设$N \in \mathbb{N}$，$ \sum\limits^{N}_{n=0} z^{n} = 
+			\dfrac{1-z^{N+1}}{1-z}$，$|z^{N+1}-z^{N}|=|z^{N}||z-1|$，其中$|z^{n}|=1,|z-1|>0$。
+			所以$(z^{N+1})$发散，$((z^{n}))$发散。
+		\end{itemize}
+		\item 求$((\dfrac{X^{n}}{n^{2}}))$的收敛半径。
+		设$z \in \mathbb{C}^{R}$，$n \in \mathbb{N}^{R}$
+		\begin{itemize}
+			\item 若$|z|\leq1$，则$\forall n \in \mathbb{N}^{*}$，$|\dfrac{z^{n}}{n^{2}}|
+			 \leq \dfrac{1}{n^{2}}$。
+			\item 若$|z|>1$，$(\dfrac{z^{n}}{n^{2}})$无界。
+		\end{itemize}
+		\begin{conclusion}
+			$Rc=1$，$\forall z \in C(0,1)$，$((\dfrac{z^{n}}{n^{2}}))$收敛。
+		\end{conclusion}
+	\end{enumerate}
+\end{example}
+
+\subsection{求收敛半径的方法}
+\begin{itemize}
+	\item 如果可以找到 $z_{0} \in \mathbb{C}$ 满足数列 $(a_{n}z_{0}^{n})$是有界的，则 $R_{c} 
+	\geq |z_{0}|$。
+	\item 如果级数$((a_{0}z_{0}^{n}))$发散或者数列$(a_{n}z_{0}^{n})$是无界的，则$R_{c} \leq
+	 |z_{0}|$。
+\end{itemize}
+
+\newpage
+练习题：求以下幂级数的收敛半径。
+\begin{enumerate}
+	\item $a_{n}=\dfrac{n^{n}}{n!}$(用两种方法)
+	\begin{itemize}
+		\item 方法1：直接使用\verb|d'Alembert|判别法。
+		$$|\dfrac{a_{n+1}}{a_{n}}| = (1+\dfrac{1}{n})^{n} \underset{n \rightarrow +\infty}
+		{\rightarrow} e$$
+		则$((a_{n}X^{n}))$的收敛半径$R_{c}=\dfrac{1}{e}$。
+		\item 方法2：根据\verb|STIRLING|定理，$n!\underset{n \rightarrow +\infty}{\sim} 
+		\sqrt{2\pi n}(\dfrac{n}{e})^{n}$。则
+		$$a_{n} \underset{n \rightarrow +\infty}{\sim} \dfrac{e^{n}}{\sqrt{2 \pi n}} $$
+		则根据命题，找级数$ ((\dfrac{e^{n}}{\sqrt{2 \pi n}} X^{n})) $的收敛半径。
+		$$ |\dfrac{\dfrac{e^{n+1}}{\sqrt{2 \pi (n+1)}}}{\dfrac{e^{n}}{\sqrt{2 \pi n}}}| 
+		= |\dfrac{e\sqrt{n}}{\sqrt{n+1}}| \underset{ n \rightarrow +\infty}{\rightarrow}
+		e$$
+		则收敛半径是$\dfrac{1}{e}$。
+	\end{itemize}
+	
+	\item $a_{n}=1+\dfrac{1}{n}$
+
+	$1+\dfrac{1}{n} \underset{n \rightarrow +\infty}{\sim} 1$，根据命题，$(((1+\dfrac{1}{n}) 
+	X^{n}))$和$((X^{n}))$相同，$R_{c}=1$。
+
+	\item $a_{n}= \prod\limits_{k=1}^{n}(\dfrac{3k+1}{k+\dfrac{1}{2}})$
+
+	$|\dfrac{a_{n+1}}{a_{n}}| \underset{n\rightarrow+\infty}{\rightarrow} 3$，$R_{c}=\dfrac{1}{3}$。
+
+	\item $a_{n}=2+cos n$
+
+	若$|z|=1$：有级数$((2+cosn))$发散，所以$R_{c}\leq 1$；并且有数列$(2+cosn)$是有界的，则$R_{c}
+	 \geq 1 $。故$R_{c} = 1$。
+
+	\item $a_{n}=C_{2n}^{n}$
+    
+    $|\dfrac{a_{n+1}}{a_{n}}|=|\dfrac{4n+2}{n+1}| \underset{n \rightarrow +\infty}{\rightarrow}
+     4$，故$R_{c}=\dfrac{1}{4}$。
+
+		
+\end{enumerate}
+
+以上是对收敛半径的一些总结，不全面，日后补充。
+
+接下来是对有关幂级数的运算的一些总结。
+
+\section{Opération sur les séries entières 幂级数的运算}
+
+这里重点是对幂级数的和函数进行求导和积分运算。在之前还有幂级数的和与积的概念。
+
+\begin{newprop}[幂级数的和与积]
+	设$((a_{n}X^{n}))$和$((b_{n}X^{n}))$是两个幂级数，定义数列：
+	$$(s_{n})=(a_{n}+b_{n})_{n \in \mathbb{N}} \quad (p_{n})=(\sum\limits_{k=0}^{n}
+	 a_{k}b_{n-k})_{n \in \mathbb{N}}$$
+
+	那么有两个幂级数的和为：
+	$$\sum\limits_{n=0}^{+\infty} s_{n}z^{n} = \sum\limits_{n=0}^{+\infty} a_{n}z^{n}
+	 + \sum\limits_{n=0}^{+\infty} b_{n}z^{n} = \sum\limits_{n=0}^{+\infty} (a_{n}+b_{n})
+	 z^{n}$$
+
+	而两个幂级数的乘积定义为：
+	$$\sum\limits_{n=0}^{+\infty}p_{n}z^{n} =  (\sum\limits_{n=0}^{+\infty}a_{n}z^{n})
+	(\sum\limits_{n=0}^{+\infty}b_{n}z^{n}) =\sum\limits_{n=0}^{+\infty}(\sum\limits
+	_{k=0}^{n} a_{k}b_{n-k})z^{n}$$
+
+\end{newprop}
+
+接下来讨论对于幂级数的和函数进行求导和积分的运算。
+
+在幂级数的收敛区间$]-R_{c},R_{c}[$内，幂级数的和函数定义为：
+$$f:x \in ]-R_{c},R_{c}[ \mapsto \sum\limits_{n=0}^{+\infty}a_{n}x^{n}$$
+\begin{multicols}{2}
+对其进行逐项求导得到：
+$$ \sum\limits_{n=0}^{+\infty}(n+1)a_{n+1}x^{n} $$
+也就是级数 $ (((n+1)a_{n+1}x^{n}))_{n \in \mathbb{N}} $。
+\\
+逐项求积分得到：
+$$ \sum\limits_{n=0}^{+\infty}\dfrac{a_{n}}{n+1}x^{n+1} $$
+也就是级数 $ ((\dfrac{a_{n}}{n+1}x^{n+1}))_{n \in \mathbb{N}} $。
+\end{multicols}
+
+有结论级数$ (((n+1)a_{n+1}x^{n}))_{n \in \mathbb{N}} $ 和 $ ((\dfrac{a_{n}}
+{n+1}x^{n+1}))_{n \in \mathbb{N}} $ 与级数  $ ((a_{n}x^{n})) $ 的收敛半径是相同的。
+
+而且还有和函数 $f$ 在幂级数的收敛区间 $]-R_{c},R_{c}[$ 可导，$\forall x \in 
+]-R_{c},R_{c}[$，
+$$ f'(x) = \sum\limits_{n=0}^{+\infty}(n+1)a_{n+1}x^{n} $$ 
+$f$ 在 $0$ 与 $x$ 这个区间上可积，且有：
+$$ \int_{0}^{x}f(t)dt =  \sum\limits_{n=0}^{+\infty}\dfrac{a_{n}}{n+1}x^{n+1} $$
+
+\begin{example}
+	几何级数$ ((x^{n})) $在收敛域 $(-1,1)$ 内有 $\sum\limits_{n=0}^{+\infty}x^{n}
+	 = \dfrac{1}{1-x} $。
+
+	对级数$ ((x^{n})) $在收敛域 $(-1,1)$ 内逐项求导得到：
+	$$ \sum\limits_{n=0}^{+\infty}(n+1)x^{n} = \dfrac{1}{(1-x)^{2}} $$
+	$$ \sum\limits_{n=1}^{+\infty}n(n+1)x^{n-1} = \dfrac{2!}{(1-x)^{3}} $$
+	对级数$ ((x^{n})) $在$[0,x[(x<1)$上逐项求积分可得：
+	$$ \int_{0}^{x} \dfrac{1}{1-t} dt = \sum\limits_{n=0}^{+\infty}\dfrac{x^{n+1}}
+	{n+1} = ln \dfrac{1}{1-x} $$
+
+\end{example}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
